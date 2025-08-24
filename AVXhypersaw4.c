@@ -7,12 +7,12 @@
 static inline __m256 approx_sin(__m256 x) {
     // So we have to use a polynomial approximation for sine (simplified) since there's no predefined sin/cos functions in the intrinsics
     __m256 x2 = _mm256_mul_ps(x, x);
-    return _mm256_sub_ps(x, _mm256_mul_ps(x2, _mm256_set1_ps(0.16605)));  // Approximation: sin(x) ≈ x - x^3 / 6
+    return _mm256_sub_ps(x, _mm256_mul_ps(x2, _mm256_set1_ps(0.16605)));  
 }
 
 static inline __m256 approx_cos(__m256 x) {
     __m256 x2 = _mm256_mul_ps(x, x);
-    return _mm256_sub_ps(_mm256_set1_ps(1.0f), _mm256_mul_ps(x2, _mm256_set1_ps(0.5f)));  // Approx: cos(x) ≈ 1 - x^2 / 2
+    return _mm256_sub_ps(_mm256_set1_ps(1.0f), _mm256_mul_ps(x2, _mm256_set1_ps(0.5f))); 
 }
 
 /*
@@ -188,3 +188,4 @@ static OENTRY localops[] = {
 
 
 LINKAGE
+
